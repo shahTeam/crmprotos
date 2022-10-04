@@ -1,2 +1,2 @@
 genproto:
-    ./scripts/generate-protos.sh
+    scripts/generate-protos.sh
