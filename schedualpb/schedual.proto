@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package schedualpb;
+
+import "google.com/protobuf/empty.proto";
+import "google.com/protobuf/timestamp.proto";
+
+option go_package = "github.com/shahTeam/crmprotos/schedualpb";
+
+service SchedualService {
+    rpc CreateSchedual (CreateSchedualRequest) returns (CreateSchedualResponse);
+    rpc GetSchedual (GetSchedualRequest) returns (CreateSchedualResponse);
+    rpc UpdateSchedual (CreateSchedualResponse) returns (CreateSchedualResponse);
+    rpc DeleteSchedual (DeleteSchedualRequest) returns (google.protobuf.Empty)
+    rpc 
+}
+
+enum Weekday {
+    MONDAY = 0;
+    TUESDAY = 1;
+    WEDNESDAY = 2;
+    THURSDAY = 3;
+    FRIDAY = 4;
+    SATURDAY = 5;
+    SUNDAY = 6;
+}
+
+message CreateSchedualRequest {
+    string group_id = 1;
+    string subject_id = 2;
+    string teacher_id = 3;
+    Weekday weekday = 4;
+    int32 lesson_number = 5;
+}
+
+message CreateSchedualResponse {
+    string id = 1;
+    string group_id = 2;
+    string subject_id = 3;
+    string teacher_id = 4;
+    Weekday weekday = 5;
+    int32 lesson_number = 6;
+}
+
+message GetSchedualRequest {
+    string schedual_id = 1;
+}
+
+message DeleteSchedualRequest {
+    string schedual_id = 1;
+}
+
